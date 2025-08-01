@@ -1,24 +1,11 @@
-# README
+# Communitools
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<!-- TODO: add description -->
 
-Things you may want to cover:
+## Development
 
-* Ruby version
+### Local set up
 
-* System dependencies
+1. 
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Deployment
