@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  # Default root_url 
+  # Default root_url
   root to: "home#index"
 end
