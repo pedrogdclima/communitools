@@ -2,3 +2,4 @@
 <h2><%= [current_user.name, current_user.username].join(' - ') %></h2>
 <p>Profile Info to come</p>
 <a href="/tools">Tools</a>
+<p><%= link_to "Delete account", users_path, data: { "turbo-method": :delete } %></p>
