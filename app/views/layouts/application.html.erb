@@ -27,4 +27,19 @@
     <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
+  <footer>
+    <div>
+      <% if user_signed_in? %>
+        <p><%= link_to "Logout", destroy_user_session_path, data: { "turbo-method": :delete } %></p>
+      <% else %>
+        <a href="/users/sign_in">Sign In</a>
+        <p><%= link_to "Login", new_user_session_path %></p>
+      <% end %>
+    </div>
+    <div>
+      <a href="https://pedrogdclima.github.io">Built by Pedro</a>
+      <br>
+      <a href="https://cbc.ca">Visit the CBC</a>
+    </div>
+  </footer>
 </html>
