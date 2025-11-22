@@ -1,5 +1,5 @@
 <h1>User Profile Page</h1>
 <h2><%= [current_user.name, current_user.username].join(' - ') %></h2>
 <p>Profile Info to come</p>
-<a href="/tools">Tools</a>
+<p>You have <%= current_user.tools.size %> <a href="/tools">tools</a></p>
 <p><%= link_to "Delete account", users_path, data: { "turbo-method": :delete } %></p>
