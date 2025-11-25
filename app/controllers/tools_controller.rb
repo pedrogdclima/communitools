@@ -1,4 +1,6 @@
 class ToolsController < ApplicationController
+  before_action :set_tool, only: %i[ destroy ]
+  
   def show
     @tool = Tool.find(params[:id])
   end
@@ -17,10 +19,19 @@ class ToolsController < ApplicationController
     end
   end
 
+  def destroy
+    @tool.destroy
+    redirect_to "/"
+  end
+
   # def edit
   # end
 
   private
+
+  def set_tool
+    @tool = Tool.find(params[:id])
+  end
 
   def tool_params
     params.expect(tool: [ :name, :brand, :desc ])
