@@ -1,2 +1,12 @@
 <h1><%= current_user.name %>'s Tool Library</h1>
 <p>List of tools</p>
+<ul>
+<% current_user.tools.each do |tool| %>
+  <li>
+    <%= [tool.name, tool.brand].join(', ') %>
+    <%= link_to "Edit", edit_tool_path(tool.id) %>
+  </li>
+<% end %>
+</ul>
+
+<p><%= link_to "Add tool", new_tool_path %></p>
