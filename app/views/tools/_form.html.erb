@@ -1,0 +1,21 @@
+<%= form_with model: tool do |form| %>
+  <% if form.object.errors.any? %>
+    <p class="error"><% form.object.errors.full_messages.first %></p>
+  <% end %>
+  
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :brand %>
+    <%= form.text_field :brand %>
+  </div>
+  <div>
+    <%= form.label :desc %>
+    <%= form.text_field :desc %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

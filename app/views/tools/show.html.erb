@@ -1,3 +1,7 @@
 <h1>Tools#show</h1>
 <p><%= @tool.name + ' ' + @tool.brand %></p>
+<% if @tool.desc != '' %>
+  <p>Description: <%= @tool.desc %></p>
+<% end %>
+<p><%= link_to "Edit", edit_tool_path(@tool.id) %></p>
 <p><%= button_to "Delete", @tool, method: :delete, data: { turbo_confirm: "Are you sure?" } %></p>

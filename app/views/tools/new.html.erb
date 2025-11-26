@@ -1,21 +1,4 @@
 <h1>Tools#new</h1>
 
-<%= form_with model: @tool do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-  <div>
-    <%= form.label :brand %>
-    <%= form.text_field :brand %>
-  </div>
-  <div>
-    <%= form.label :desc %>
-    <%= form.text_field :desc %>
-  </div>
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
-
+<%= render "form", tool: @tool %>
 <%= link_to 'Back', tools_path %>

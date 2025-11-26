@@ -1,8 +1,7 @@
 class ToolsController < ApplicationController
-  before_action :set_tool, only: %i[ destroy ]
+  before_action :set_tool, only: %i[ show edit update destroy ]
   
   def show
-    @tool = Tool.find(params[:id])
   end
 
   def new
@@ -24,8 +23,16 @@ class ToolsController < ApplicationController
     redirect_to "/"
   end
 
-  # def edit
-  # end
+  def edit
+  end
+
+  def update
+    if @tool.update(tool_params)
+      redirect_to "/"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
 
   private
 
