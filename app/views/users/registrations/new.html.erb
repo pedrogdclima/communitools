@@ -3,16 +3,28 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script>
     let map;
+    let popup = L.popup();
+    let latlngField;
     document.addEventListener('DOMContentLoaded', () => {
       map = L.map('map').setView([43.6529148, -79.3853107], 11.5);
+      latlngField = document.querySelector('#user_latlng');
+
       L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
       }).addTo(map);
       map.on('click', onMapClick);
     });
-    function onMapClick(e) {
-      console.log("You clicked the map at " + e.latlng);
+    function parseLatlng(number) {
+      return number.toFixed(4);
+    }
+    function onMapClick(event) {
+      popup
+        .setLatLng(event.latlng)
+        .setContent("Your location")
+        .openOn(map);
+      let location = [event.latlng.lat, event.latlng.lng].map(parseLatlng);
+      latlngField.value = location.join(', ');
     }
   </script>
 <% end %>
@@ -50,10 +62,16 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <div class="field">
+    <%= f.label :latlng %><br />
+    <%= f.text_field :latlng %><br />
+  </div>
+  <div style="height: 180px; width: 360px" id="map"></div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
+
 <% end %>
 
-<div style="height: 180px; width: 360px" id="map"></div>
 <%= render "devise/shared/links" %>
