@@ -5,8 +5,7 @@
   <% current_user.tools.each do |tool| %>
     <li>
       <%= [tool.name, tool.brand].join(', ') %>
-      <%= link_to "Tool", tool_path(tool.id) %>
-      <%= link_to "Edit", edit_tool_path(tool.id) %>
+      <%= link_to "View", tool_path(tool.id) %>
     </li>
   <% end %>
   </ul>
