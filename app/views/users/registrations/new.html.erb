@@ -1,3 +1,22 @@
+<% content_for :head do %>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+    let map;
+    document.addEventListener('DOMContentLoaded', () => {
+      map = L.map('map').setView([43.6529148, -79.3853107], 11.5);
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      }).addTo(map);
+      map.on('click', onMapClick);
+    });
+    function onMapClick(e) {
+      console.log("You clicked the map at " + e.latlng);
+    }
+  </script>
+<% end %>
+
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -36,4 +55,5 @@
   </div>
 <% end %>
 
+<div style="height: 180px; width: 360px" id="map"></div>
 <%= render "devise/shared/links" %>
