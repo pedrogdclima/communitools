@@ -1,4 +1,6 @@
-<h1>Tool#Edit</h1>
+<div class="row align-items-center justify-content-between mb-3">
+  <h1 class="col-4">Edit Tool</h1>
+  <%= link_to 'Back', tool_path(@tool.id), class: "col-1 btn btn-outline-light" %>
+</div>
 
 <%= render "form", tool: @tool %>
-<%= link_to 'Back', tools_path %>

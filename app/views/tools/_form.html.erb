@@ -3,19 +3,28 @@
     <p class="error"><% form.object.errors.full_messages.first %></p>
   <% end %>
   
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="field row mb-3">
+    <%= form.label :name, class: "col-2 col-form-label" %>
+    <div class="col-3">
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
   </div>
-  <div>
-    <%= form.label :brand %>
-    <%= form.text_field :brand %>
+
+  <div class="field row mb-3">
+    <%= form.label :brand, class: "col-2 col-form-label" %>
+    <div class="col-3">
+      <%= form.text_field :brand, class: "form-control" %>
+    </div>
   </div>
-  <div>
-    <%= form.label :desc %>
-    <%= form.text_field :desc %>
+  
+  <div class="field row mb-3">
+    <%= form.label :desc, class: "col-2 col-form-label" %>
+    <div class="col-3">
+      <%= form.text_field :desc, class: "form-control"  %>
+    </div>
   </div>
-  <div>
-    <%= form.submit %>
+  
+  <div class="mb-3">
+    <%= form.submit "Save", class: "btn btn-outline-light" %>
   </div>
 <% end %>

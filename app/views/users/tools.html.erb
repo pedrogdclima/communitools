@@ -1,13 +1,16 @@
-<h1><%= current_user.name %>'s Tool Library</h1>
-<div>
-  <p>List of tools</p>
-  <ul>
-  <% current_user.tools.each do |tool| %>
-    <li>
-      <%= [tool.name, tool.brand].join(', ') %>
-      <%= link_to "View", tool_path(tool.id) %>
-    </li>
-  <% end %>
-  </ul>
-  <p><%= link_to "Add tool", new_tool_path %></p>
+<div class="row align-items-center justify-content-between mb-3">
+  <h1 class="col-4">Your Tools</h1>
+  <%= link_to "Back", "/users", class: "col-1 btn btn-outline-light" %>
 </div>
+<% current_user.tools.each do |tool| %>
+  <div class="row mb-3">
+    <div class="col-3">
+      <!-- <%= [tool.name, tool.brand].join(', ') %> -->
+      <%= tool.name %>
+    </div>
+    <div class="col-2">
+      <%= link_to "View", tool_path(tool.id) %>
+    </div>
+  </div>
+<% end %>
+<%= link_to "Add", new_tool_path, class: "col-1 btn btn-outline-light" %>

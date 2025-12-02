@@ -1,7 +1,21 @@
-<h1>Tools#show</h1>
-<p><%= @tool.name + ' ' + @tool.brand %></p>
-<% if @tool.desc != '' %>
-  <p>Description: <%= @tool.desc %></p>
-<% end %>
-<p><%= link_to "Edit", edit_tool_path(@tool.id) %></p>
-<p><%= button_to "Delete", @tool, method: :delete, data: { turbo_confirm: "Are you sure?" } %></p>
+<div class="row align-items-center justify-content-between mb-3">
+  <h1 class="col-4"><%= @tool.name %></h1>
+  <%= link_to "Back", "/tools", class: "col-1 btn btn-outline-light" %>
+</div>
+
+<div class="row mb-3">
+  <div class="col-3">Brand</div>
+  <div class="col-3"><%= @tool.brand %></div>
+</div>
+
+<div class="row mb-3">
+  <div class="col-3">Description</div>
+  <div class="col-3"><%= @tool.desc || 'No description provided' %></div>
+</div>
+
+<div class="row align-items-center mb-3">
+  <%= link_to "Edit", edit_tool_path(@tool.id), class: "col-1 btn btn-outline-light" %>
+  <div class="col-1">
+    <%= button_to "Delete", @tool, class: "btn btn-outline-light", method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+  </div>
+</div>

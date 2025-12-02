@@ -8,3 +8,34 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+
+body {
+  background-color: rgb(255, 113, 62);
+}
+
+h1, h2, h3, h4, p, a, li, label, em, div  {
+  color: floralwhite;
+}
+
+.field > div > input {
+  color: floralwhite;
+  background: none;
+  /* padding: 5px; */
+  border: none;
+  border-radius: 8px 8px 0 0;
+  border-bottom: 2px solid floralwhite;
+}
+
+.field > div > input:focus {
+  color: floralwhite;
+  outline: none;
+  background-color: rgb(172, 67, 29);
+  border-radius: 8px 8px 0 0;
+  box-shadow: none;
+  border-bottom: 2px solid floralwhite;
+}
+
+.container {
+  width: 720px;
+}
