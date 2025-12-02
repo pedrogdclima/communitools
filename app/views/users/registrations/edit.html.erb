@@ -1,3 +1,9 @@
+<% content_for :head do %>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <%= javascript_import_module_tag "slippy_map" %>
+<% end %>
+
 <div class="row align-items-center justify-content-between mb-3">
   <h1 class="col-4">Edit <%= resource_name.to_s.humanize %></h2>
   <%= link_to 'Back', users_path, class: "col-1 btn btn-outline-light" %>
@@ -43,6 +49,14 @@
       <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>
     </div>
   </div>
+
+  <div class="field row mb-3">
+    <%= f.label :latlng, class: "col-2 col-form-label" %>
+    <div class="col-3">
+      <%= f.text_field :latlng, class: "form-control" %>
+    </div>
+  </div>
+  <div class="mb-3" style="height: 180px; width: 360px" id="map"></div>
 
   <div class="field row mb-3">
     <%= f.label :current_password, class: "col-2 col-form-label" %>
