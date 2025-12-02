@@ -1,3 +1,6 @@
 <h1 class="mb-3">About Communitools</h1>
 <p>The goal of this app is to provide a platform where neighbours can see which tools their fellow neighbours own and offer their own tools.</p>
 <p>The library has <%= User.all.size %> users and <%= Tool.all.size %> tools!</p>
+<div class="col-2">
+  <%= link_to "Sign Up!", "/users/sign_up", class: "btn btn-outline-light" %>
+</div>
