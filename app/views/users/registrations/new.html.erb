@@ -1,32 +1,7 @@
 <% content_for :head do %>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script>
-    let map;
-    let popup = L.popup();
-    let latlngField;
-    document.addEventListener('DOMContentLoaded', () => {
-      map = L.map('map').setView([43.6529148, -79.3853107], 11.5);
-      latlngField = document.querySelector('#user_latlng');
-
-      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-      }).addTo(map);
-      map.on('click', onMapClick);
-    });
-    function parseLatlng(number) {
-      return number.toFixed(4);
-    }
-    function onMapClick(event) {
-      popup
-        .setLatLng(event.latlng)
-        .setContent("Your location")
-        .openOn(map);
-      let location = [event.latlng.lat, event.latlng.lng].map(parseLatlng);
-      latlngField.value = location.join(', ');
-    }
-  </script>
+  <%= javascript_import_module_tag "slippy_map" %>
 <% end %>
 
 <div class="row align-items-center justify-content-between mb-3">
