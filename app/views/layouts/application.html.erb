@@ -27,22 +27,20 @@
 
   <body>
     <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    </div>
-    <div class="container">
+      <p class="notice mb-3"><%= notice %></p>
+      <p class="alert mb-3"><%= alert %></p>
       <%= yield %>
     </div>
   </body>
   <footer>
     <div class="container">
-      <!--
+
       <% if user_signed_in? %>
-        <p><%= link_to "Logout", destroy_user_session_path, data: { "turbo-method": :delete } %></p>
+        <p><%= link_to "Logout", destroy_user_session_path, class: "btn btn-outline-light", data: { "turbo-method": :delete } %></p>
       <% else %>
-        <p><%= link_to "Login", new_user_session_path %></p>
+        <p><%= link_to "Login", new_user_session_path, class: "btn btn-outline-light" %></p>
       <% end %>
-      -->
+
       <div class="position-absolute bottom-0 end-0 mb-2 me-2">
         <a href="https://pedrogdclima.github.io">Built by Pedro</a>
       </div>

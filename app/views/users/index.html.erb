@@ -1,6 +1,6 @@
-<div class="row align-items-center justify-content-between mb-3">
+<div class="row align-items-center justify-content-between mb-3" data-turbo="false">
   <h1 class="col-4"><%= current_user.name %></h2>
-  <%= link_to 'Edit', "/users/edit", class: "col-1 btn btn-outline-light" %>
+  <%= link_to 'Edit', edit_user_registration_path, class: "col-1 btn btn-outline-light" %>
 </div>
 <div class="row mb-3">
   <div class="col-4"><%= current_user.username %></div>
@@ -12,6 +12,12 @@
   <div class="col-4"><%= current_user.latlng || "No location" %></div>
 </div>
 <div class="row mb-3">
-  <div class="col-4">You have <%= current_user.tools.size %> <a href="/tools">tools</a></div>
+  <div class="col-4">
+    You have <%= current_user.tools.size %> <a href="/tools">tools</a>
+  </div>
+</div>
+<div class="row mb-3">
+  <div class="col-5">
+    Your neighbours have <%= neighbouringTools %>
   </div>
 </div>
