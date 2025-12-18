@@ -6,4 +6,9 @@ class UsersController < ApplicationController
 
   def tools
   end
+  
+  def nearby
+    @tools = helpers.nearbyTools
+  end
+
 end
