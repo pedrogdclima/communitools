@@ -50,9 +50,9 @@ class ToolsController < ApplicationController
 
   def is_current_user_owner
     if @tool.nil? || @tool.user_id.nil?
-      redirect_to users_path , alert: "Tool doesn't exist!"
+      redirect_to users_path , alert: t.(".no_tool")
     elsif @tool.user_id != current_user.id
-      redirect_to tool_path(@tool.id), alert: t("error.messages.wrong_user")
+      redirect_to tool_path(@tool.id), alert: t(".wrong_user")
     end
   end
 end

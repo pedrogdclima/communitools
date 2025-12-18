@@ -1,6 +1,6 @@
 <div class="row align-items-center justify-content-between mb-3">
   <h1 class="col-4">Your Tools</h1>
-  <%= link_to "Back", "/users", class: "col-1 btn btn-outline-light" %>
+  <%= link_to "Back", user_path, class: "col-1 btn btn-outline-light" %>
 </div>
 <% current_user.tools.each do |tool| %>
   <div class="row mb-3">

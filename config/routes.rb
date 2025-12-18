@@ -1,14 +1,21 @@
 Rails.application.routes.draw do
 
-  # devise_for :users
+  authenticated :user do
+    root to: "users#index", as: :authenticated_root
+  end
+
+  root to: "about#index"
+
   devise_for :users, controllers: { registrations: 'users/registrations' }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   get "tools", to: "users#tools"
 
-  resources :tools
+  get "user", to: "users#index"
 
-  get "users", to: "users#index"
+  get "nearby", to: "users#nearby"
+
+  resources :tools
 
   get "about", to: "about#index"
 
@@ -20,7 +27,4 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  # Defines the root path route ("/")
-  # root "posts#index"
-  root to: "users#tools"
 end
