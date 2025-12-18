@@ -18,7 +18,7 @@ h1, h2, h3, h4, p, a, li, label, em, div  {
   color: floralwhite;
 }
 
-.field > div > input {
+.field input {
   color: floralwhite;
   background: none;
   /* padding: 5px; */
@@ -27,7 +27,7 @@ h1, h2, h3, h4, p, a, li, label, em, div  {
   border-bottom: 2px solid floralwhite;
 }
 
-.field > div > input:focus {
+.field input:focus {
   color: floralwhite;
   outline: none;
   background-color: rgb(172, 67, 29);
