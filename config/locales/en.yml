@@ -28,7 +28,6 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
-  error:
-    messages:
-      wrong_user: "You don't own this tool!"
+  tools:
+    wrong_user: "You don't own this tool!"
+    no_id: "Tool doesn't exist!"
