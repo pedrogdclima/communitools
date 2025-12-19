@@ -58,7 +58,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       keys: [
         :username,
         :name,
-        :latlng
+        :latlng,
+        :max_distance
       ])
   end
 

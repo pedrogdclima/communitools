@@ -9,6 +9,9 @@
   <div class="col-4"><%= current_user.email %></div>
 </div>
 <div class="row mb-3">
+  <div class="col-4">Distance: <%= current_user.max_distance %></div>
+</div>
+<div class="row mb-3">
   <div class="col-4"><%= current_user.latlng || "No location" %></div>
 </div>
 <div class="row mb-3">

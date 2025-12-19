@@ -6,8 +6,6 @@ class User < ApplicationRecord
 
   has_many :tools
 
-  MAX_DIST = 3
-  
   def total_neighbours
     User.all.size
   end
@@ -33,6 +31,6 @@ class User < ApplicationRecord
     nsDist = kilperDistLat * (cuLat - ouLat)
     ewDist = kilPerDistLon * (cuLng - ouLng)
     dist = Math.sqrt(nsDist**2 + ewDist**2)
-    dist < MAX_DIST
+    dist < self.max_distance
   end
 end
