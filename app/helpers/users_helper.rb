@@ -1,33 +1,4 @@
 module UsersHelper
-  MAX_DIST = 3
-
-  def totalNeighbours
-    User.all.size
-  end
-
-  def nearbyUsers
-    allUsers = User.select(:id, :name, :latlng)
-    allUsers.select do |user|
-      user.id != current_user.id && isNearby(user)
-    end
-  end
-
-  def nearbyTools
-    nearbyIds = nearbyUsers.map(&:id)
-    Tool.includes(:user).where(user_id: nearbyIds)
-  end
-
-  def isNearby(user)
-    cuLat, cuLng = current_user.latlng.split(', ').map(&:to_f)
-    ouLat, ouLng = user.latlng.split(', ').map(&:to_f)
-    ml = (cuLat + ouLat) / 2
-    kilperDistLat = 111.13209 - 0.56605 * Math.cos(2*ml) + 0.00120 * Math.cos(4*ml)
-    kilPerDistLon = 111.41513 * Math.cos(ml) - 0.09455 * Math.cos(3*ml) + 0.00012 * Math.cos(5*ml)
-    nsDist = kilperDistLat * (cuLat - ouLat)
-    ewDist = kilPerDistLon * (cuLng - ouLng)
-    dist = Math.sqrt(nsDist**2 + ewDist**2)
-    dist < MAX_DIST
-  end
 end
 
 =begin
