@@ -1,3 +1,9 @@
+<% content_for :head do %>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <%= javascript_import_module_tag "display_map" %>
+<% end %>
+
 <div class="row align-items-center justify-content-between mb-3" data-turbo="false">
   <h1 class="col-4"><%= current_user.name %></h2>
   <%= link_to 'Edit', edit_user_registration_path, class: "col-1 btn btn-outline-light" %>
@@ -12,8 +18,9 @@
   <div class="col-4">Distance: <%= current_user.max_distance %></div>
 </div>
 <div class="row mb-3">
-  <div class="col-4"><%= current_user.latlng || "No location" %></div>
+  <div class="col-4 latlng"><%= current_user.latlng || "No location" %></div>
 </div>
+<div class="mb-3" style="height: 180px; width: 360px" id="map"></div>
 <div class="row mb-3">
   <div class="col-4">
     You have <%= current_user.tools.size %> <a href="/tools">tools</a>
