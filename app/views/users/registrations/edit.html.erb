@@ -4,7 +4,7 @@
   <%= javascript_import_module_tag "slippy_map" %>
 <% end %>
 
-<div class="row align-items-center justify-content-between mb-3">
+<div class="row align-items-center justify-content-between mb-3" data-turbo="false">
   <h1 class="col-4">Edit <%= resource_name.to_s.humanize %></h2>
   <%= link_to 'Back', user_path, class: "col-1 btn btn-outline-light" %>
 </div>
@@ -75,7 +75,7 @@
     </div>
   </div>
 
-  <div class="actions mb-3">
+  <div class="actions mb-3" data-turbo="false">
     <%= f.submit "Update", class: "btn btn-outline-light" %>
   </div>
 <% end %>
