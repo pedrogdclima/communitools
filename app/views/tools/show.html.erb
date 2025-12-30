@@ -1,6 +1,6 @@
 <div class="row align-items-center justify-content-between mb-3">
   <h1 class="col-4"><%= @tool.name %></h1>
-  <%= link_to "Back", tools_path, class: "col-1 btn btn-outline-light" %>
+  <%= link_to "Back", :back, class: "col-1 btn btn-outline-light" %>
 </div>
 
 <% if current_user.id != @tool.user_id %>
