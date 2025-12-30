@@ -3,6 +3,13 @@
   <%= link_to "Back", tools_path, class: "col-1 btn btn-outline-light" %>
 </div>
 
+<% if current_user.id != @tool.user_id %>
+<div class="row mb-3">
+  <div class="col-3">Owner</div>
+  <div class="col-3"><%= @tool.user.name %></div>
+</div>
+<% end %>
+
 <div class="row mb-3">
   <div class="col-3">Brand</div>
   <div class="col-3"><%= @tool.brand %></div>
