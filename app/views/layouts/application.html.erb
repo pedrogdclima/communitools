@@ -43,8 +43,12 @@
         <div class="col">
           <% if user_signed_in? %>
             <p><%= link_to "Logout", destroy_user_session_path, class: "btn btn-outline-light", data: { "turbo-method": :delete } %></p>
-          <% else %>
+          <% elsif current_page?("/about") || current_page?("/") %>
             <p><%= link_to "Login", new_user_session_path, class: "btn btn-outline-light" %></p>
+            <p><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-outline-light" %></p>
+          <% elsif current_page?("/users/sign_up") %>
+            <p><%= link_to "Login", new_user_session_path, class: "btn btn-outline-light" %></p>
+          <% elsif current_page?("/users/sign_in") %>
             <p><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-outline-light" %></p>
           <% end %>
         </div>
