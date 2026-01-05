@@ -28,7 +28,6 @@
 </div>
 <div class="row align-items-center mb-3">
   <div class="col-5">
-    There are <%= current_user.total_neighbours %> total users on the platform, <%= current_user.nearby_users.size %> of which are nearby and sharing <%= current_user.nearby_tools.size %> tools!
+    There are <%= current_user.total_neighbours %> total users on the platform, <%= current_user.nearby_users.size %> of which are nearby and sharing <%= current_user.nearby_tools.size %> <a href="/nearby">tools</a>!
   </div>
-  <%= link_to 'Tools', nearby_path, class: "col-1 btn btn-outline-light" %>
 </div>
