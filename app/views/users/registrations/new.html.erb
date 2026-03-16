@@ -4,39 +4,37 @@
   <%= javascript_import_module_tag "slippy_map" %>
 <% end %>
 
-<div class="row align-items-center justify-content-between mb-3">
-  <h1 class="col-4">Sign Up</h1>
-  <%= link_to 'Back', root_path, class: "col-1 btn btn-outline-light" %>
-</div>
+<h2>Sign Up</h2>
+<%= link_to 'Back', root_path %>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field row mb-3">
-    <%= f.label :username, class: "col-2 col-form-label" %>
-    <div class="col-4">
-      <%= f.text_field :username, class: "form-control", autofocus: true, autocomplete: "username" %>
+  <div class="field">
+    <%= f.label :username, class: "" %>
+    <div class="">
+      <%= f.text_field :username, class: "", autofocus: true, autocomplete: "username" %>
     </div>
   </div>
 
-  <div class="field row mb-3">
-    <%= f.label :name, class: "col-2 col-form-label" %>
-    <div class="col-4">
-      <%= f.text_field :name, class: "form-control", autofocus: true, autocomplete: "name" %>
+  <div class="field">
+    <%= f.label :name, class: "" %>
+    <div class="">
+      <%= f.text_field :name, class: "", autofocus: true, autocomplete: "name" %>
     </div>
   </div>
 
-  <div class="field row mb-3">
-    <%= f.label :email, class: "col-2 col-form-label" %>
-    <div class="col-4">
-      <%= f.email_field :email, class: "form-control",  autofocus: true, autocomplete: "email" %>
+  <div class="field">
+    <%= f.label :email, class: "" %>
+    <div class="">
+      <%= f.email_field :email, class: "",  autofocus: true, autocomplete: "email" %>
     </div>
   </div>
 
-  <div class="field row mb-3">
-    <%= f.label :password, class: "col-2 col-form-label" %>
-    <div class="col-4">
-      <%= f.password_field :password, class: "form-control", autocomplete: "new-password" %>
+  <div class="field">
+    <%= f.label :password, class: "" %>
+    <div class="">
+      <%= f.password_field :password, class: "", autocomplete: "new-password" %>
       <!--
       <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -45,22 +43,22 @@
     </div>
   </div>
 
-  <div class="field row mb-3">
-    <%= f.label :password_confirmation, class: "col-2 col-form-label" %>
-    <div class="col-4">
-      <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>
+  <div class="field">
+    <%= f.label :password_confirmation, class: "" %>
+    <div class="">
+      <%= f.password_field :password_confirmation, class: "", autocomplete: "new-password" %>
     </div>
   </div>
 
-  <div class="field row mb-3 visually-hidden">
-    <%= f.label :latlng, class: "col-2 col-form-label" %>
-    <div class="col-4">
-      <%= f.text_field :latlng, class: "form-control",  autofocus: true, autocomplete: "latlng" %>
+  <div class="field">
+    <%= f.label :latlng, class: "" %>
+    <div class="">
+      <%= f.text_field :latlng, class: "",  autofocus: true, autocomplete: "latlng" %>
     </div>
   </div>
-  <div class="mb-3" style="height: 180px; width: 360px" id="map"></div>
+  <div class="" style="height: 180px; width: 360px" id="map"></div>
 
-  <div class="actions mb-3">
-    <%= f.submit "Sign up", class: "btn btn-outline-light" %>
+  <div class="actions">
+    <%= f.submit "Sign up" %>
   </div>
 <% end %>

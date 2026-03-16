@@ -1,14 +1,13 @@
-<div class="row align-items-center justify-content-between mb-3" data-turbo="false">
-  <h1 class="col-4">Your Tools</h1>
-  <%= link_to "Back", user_path, class: "col-1 btn btn-outline-light" %>
-</div>
+<h2>Your Tools</h2>
+<%= link_to "Back", user_path %>
+
 <% current_user.tools.each do |tool| %>
-  <div class="row mb-3">
-    <div class="col-4">
+  <div class="">
+    <div class="">
       <!-- <%= [tool.name, tool.brand].join(', ') %> -->
       <%= tool.name %>
     </div>
-    <div class="col-2">
+    <div class="">
       <%= link_to "View", tool_path(tool.id) %>
     </div>
     <% if tool.photo.attached? %>
@@ -18,4 +17,4 @@
     <% end %>
   </div>
 <% end %>
-<%= link_to "Add", new_tool_path, class: "col-1 btn btn-outline-light" %>
+<%= link_to "Add", new_tool_path %>

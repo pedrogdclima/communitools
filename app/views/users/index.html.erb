@@ -4,30 +4,29 @@
   <%= javascript_import_module_tag "display_map" %>
 <% end %>
 
-<div class="row align-items-center justify-content-between mb-3" data-turbo="false">
-  <h1 class="col-4"><%= current_user.name %></h2>
-  <%= link_to 'Edit', edit_user_registration_path, class: "col-1 btn btn-outline-light" %>
+<h2><%= current_user.name %></h2>
+<%= link_to 'Edit', edit_user_registration_path %>
+
+<div class="">
+  <div class=""><%= current_user.username %></div>
 </div>
-<div class="row mb-3">
-  <div class="col-4"><%= current_user.username %></div>
+<div class="">
+  <div class=""><%= current_user.email %></div>
 </div>
-<div class="row mb-3">
-  <div class="col-4"><%= current_user.email %></div>
+<div class="">
+  <div class="">Distance: <%= current_user.max_distance %></div>
 </div>
-<div class="row mb-3">
-  <div class="col-4">Distance: <%= current_user.max_distance %></div>
+<div class="">
+  <div class=" latlng"><%= current_user.latlng || "No location" %></div>
 </div>
-<div class="row mb-3">
-  <div class="col-4 latlng"><%= current_user.latlng || "No location" %></div>
-</div>
-<div class="mb-3" style="height: 180px; width: 360px" id="map"></div>
-<div class="row mb-3">
-  <div class="col-4">
+<div class="" style="height: 180px; width: 360px" id="map"></div>
+<div class="">
+  <div class="">
     You have <%= current_user.tools.size %> <a href="/tools">tools</a>
   </div>
 </div>
-<div class="row align-items-center mb-3">
-  <div class="col-5">
+<div class="">
+  <div class="">
     There are <%= current_user.total_neighbours %> total users on the platform, <%= current_user.nearby_users.size %> of which are nearby and sharing <%= current_user.nearby_tools.size %> <a href="/nearby">tools</a>!
   </div>
 </div>

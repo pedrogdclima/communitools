@@ -1,18 +1,17 @@
-<div class="row align-items-center justify-content-between mb-3">
-  <h1 class="col-6"><%= @tool.name %></h1>
-  <%= link_to "Back", :back, class: "col-1 btn btn-outline-light" %>
-</div>
+<h2><%= @tool.name %></h2>
+<%= link_to "Back", :back %>
+
 
 <% if current_user.id != @tool.user_id %>
-<div class="row mb-3">
-  <div class="col-3">Owner</div>
-  <div class="col-3"><%= @tool.user.name %></div>
+<div class="">
+  <div class="">Owner</div>
+  <div class=""><%= @tool.user.name %></div>
 </div>
 <% end %>
 
-<div class="row mb-3">
-  <div class="col-3">Brand</div>
-  <div class="col-3"><%= @tool.brand %></div>
+<div class="">
+  <div class="">Brand</div>
+  <div class=""><%= @tool.brand %></div>
 </div>
 
 <div class="row mb-3">
@@ -25,11 +24,11 @@
   <%= @tool.photo.attached? ? image_tag(@tool.photo) : (tag.div "No photo provided", class: "col-3") %>
 </div>
 
-<div class="row mb-3">
-  <div class="col-1">
-    <%= link_to "Edit", edit_tool_path(@tool.id), class: "btn btn-outline-light" %>
+<div class="">
+  <div class="">
+    <%= link_to "Edit", edit_tool_path(@tool.id) %>
   </div>
-  <div class="col-1">
-    <%= button_to "Delete", @tool, class: "btn btn-outline-light", method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+  <div class="">
+    <%= button_to "Delete", @tool, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
   </div>
 </div>

@@ -25,37 +25,40 @@
     <%= yield :head %>
   </head>
 
-  <body>
-    <div class="container">
-      <div class="col mb-3">
-      <% if notice %>
-        <p class="alert alert-light mb-3"><%= notice %></p>
-      <% elsif  alert%>
-        <p class="alert alert-warning mb-3"><%= alert %></p>
-      <% end %>
+  <body class="h-dvh mx-auto max-w-7xl px-6 py-10">
+    <header class="mx-auto max-w-2xl">
+      <h1>Communitools</h1>
+      <div class="flash-container">
+        <% if notice %>
+          <p class=""><%= notice %></p>
+        <% elsif  alert%>
+          <p class=""><%= alert %></p>
+        <% end %>
       </div>
+    </header>
+    <main class="mx-auto max-w-2xl mt-10">
       <%= yield %>
-    </div>
-  </body>
-  <footer>
-    <div class="container position-absolute bottom-0 start-50 translate-middle-x">
-      <div class="row align-items-center justify-content-between">
-        <div class="col">
-          <% if user_signed_in? %>
-            <p><%= link_to "Logout", destroy_user_session_path, class: "btn btn-outline-light", data: { "turbo-method": :delete } %></p>
-          <% elsif current_page?("/about") || current_page?("/") %>
-            <p><%= link_to "Login", new_user_session_path, class: "btn btn-outline-light" %></p>
-            <p><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-outline-light" %></p>
-          <% elsif current_page?("/users/sign_up") %>
-            <p><%= link_to "Login", new_user_session_path, class: "btn btn-outline-light" %></p>
-          <% elsif current_page?("/users/sign_in") %>
-            <p><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-outline-light" %></p>
-          <% end %>
-        </div>
-        <div class="col-3">
-          <a href="https://pedrogdclima.github.io">Built by Pedro</a>
+    </main>
+    <footer class="fixed bottom-0 left-0 right-0 px-6">
+      <div class="mx-auto max-w-2xl">
+        <div class="">
+          <div class="">
+            <% if user_signed_in? %>
+              <p><%= link_to "Logout", destroy_user_session_path, data: { "turbo-method": :delete } %></p>
+            <% elsif current_page?("/about") || current_page?("/") %>
+              <p><%= link_to "Login", new_user_session_path %></p>
+              <p><%= link_to "Sign Up", new_user_registration_path %></p>
+            <% elsif current_page?("/users/sign_up") %>
+              <p><%= link_to "Login", new_user_session_path %></p>
+            <% elsif current_page?("/users/sign_in") %>
+              <p><%= link_to "Sign Up", new_user_registration_path %></p>
+            <% end %>
+          </div>
+          <div class="">
+            <a href="https://pedrogdclima.github.io">Built by Pedro</a>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
+  </body>
 </html>
