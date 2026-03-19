@@ -66,4 +66,4 @@ end
 
 gem "ruby-vips", "~> 2.3"
 
-gem "aws-sdk-s3", "~> 1.216"
+gem "aws-sdk-s3", require: false

@@ -378,7 +378,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  aws-sdk-s3 (~> 1.216)
+  aws-sdk-s3
   bootsnap
   brakeman
   capybara
