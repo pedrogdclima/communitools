@@ -24,6 +24,13 @@
     </div>
   </div>
   
+  <div class="field row mb-3">
+    <%= form.label :photo, class: "col-2 col-form-label" %>
+    <div class="col-4">
+      <%= form.file_field :photo, accept: "image/png, image/jpeg", class: "form-control"  %>
+    </div>
+  </div>
+
   <div class="mb-3">
     <%= form.submit "Save", class: "btn btn-outline-light" %>
   </div>

@@ -45,7 +45,7 @@ class ToolsController < ApplicationController
   end
 
   def tool_params
-    params.expect(tool: [ :name, :brand, :desc ])
+    params.expect(tool: [ :name, :brand, :desc, :photo ])
   end
 
   def is_current_user_owner
