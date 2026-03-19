@@ -11,6 +11,11 @@
     <div class="col-2">
       <%= link_to "View", tool_path(tool.id) %>
     </div>
+    <% if tool.photo.attached? %>
+    <div class="col-2">
+      <%= image_tag(tool.photo.variant(:thumb), size: "100") %>
+    </div>
+    <% end %>
   </div>
 <% end %>
 <%= link_to "Add", new_tool_path, class: "col-1 btn btn-outline-light" %>
