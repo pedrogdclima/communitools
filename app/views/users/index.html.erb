@@ -1,7 +1,7 @@
 <% content_for :head do %>
+  <%= javascript_import_module_tag "leaflet" %>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <%= javascript_import_module_tag "display_map" %>
+  <%= javascript_import_module_tag "slippy_map" %>
 <% end %>
 
 <h2><%= current_user.name %></h2>
@@ -19,7 +19,8 @@
 <div class="">
   <div class=" latlng"><%= current_user.latlng || "No location" %></div>
 </div>
-<div class="" style="height: 180px; width: 360px" id="map"></div>
+<div class="map" style="height: 180px; width: 360px" id="display-map"></div>
+
 <div class="">
   <div class="">
     You have <%= current_user.tools.size %> <a href="/tools">tools</a>
