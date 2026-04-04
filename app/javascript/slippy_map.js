@@ -84,3 +84,4 @@ document.addEventListener('turbo:before-render', () => {
     map = null;
   }
 });
+initializeMap();
