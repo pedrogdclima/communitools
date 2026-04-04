@@ -5,29 +5,18 @@
 <% end %>
 
 <h2><%= current_user.name %></h2>
-<%= link_to 'Edit', edit_user_registration_path %>
+<%= link_to 'Edit', edit_user_registration_path, class: "self-end" %>
 
-<div class="">
-  <div class=""><%= current_user.username %></div>
+<div class="flex flex-col gap-1">
+  <p>Username: <%= current_user.username %></p>
+  <p>Email: <%= current_user.email %></p>
+  <p>Distance: <%= current_user.max_distance %> km</p>
 </div>
-<div class="">
-  <div class=""><%= current_user.email %></div>
-</div>
-<div class="">
-  <div class="">Distance: <%= current_user.max_distance %></div>
-</div>
-<div class="">
-  <div class=" latlng"><%= current_user.latlng || "No location" %></div>
+<div class="hidden">
+  <div class="latlng"><%= current_user.latlng || "No location" %></div>
 </div>
 <div class="map" style="height: 180px; width: 360px" id="display-map"></div>
 
 <div class="">
-  <div class="">
-    You have <%= current_user.tools.size %> <a href="/tools">tools</a>
-  </div>
-</div>
-<div class="">
-  <div class="">
-    There are <%= current_user.total_neighbours %> total users on the platform, <%= current_user.nearby_users.size %> of which are nearby and sharing <%= current_user.nearby_tools.size %> <a href="/nearby">tools</a>!
-  </div>
+  There are <%= current_user.total_neighbours %> total users on the platform, <%= current_user.nearby_users.size %> of which are nearby and sharing <%= current_user.nearby_tools.size %> <a href="/nearby">tools</a>!
 </div>

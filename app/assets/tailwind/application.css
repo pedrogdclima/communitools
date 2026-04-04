@@ -1,7 +1,50 @@
 @import "tailwindcss";
 
 body {
-  background-color: rgb(51, 62, 157);
+  @apply bg-sky-950;
+}
+
+.header {
+  @apply mt-0 m-2 p-2 w-full sm:w-[600px] mx-auto bg-sky-900 rounded-b-lg flex flex-col justify-center;
+}
+
+.middle-container {
+  @apply w-full sm:w-[600px] mx-auto grow relative;
+}
+
+.sidebar-container {
+  @apply w-[80px] hidden md:flex absolute -left-26;
+}
+
+.sidebar {
+  @apply p-4 bg-sky-900 rounded-lg h-fit flex-col;
+}
+
+.main-container {
+  @apply flex flex-col;
+}
+
+.main {
+  @apply p-6 bg-sky-900 rounded-lg flex flex-col;
+}
+
+.footer {
+  @apply mb-0 m-2 p-2 w-full sm:w-[600px] mx-auto bg-sky-900 rounded-t-lg flex flex-row justify-around;
+}
+
+.flash-container {
+  height: 40px;
+  @apply mx-auto;
+}
+
+.notice {
+  color:rgb(90, 140, 90);
+  @apply p-1 bg-sky-950 rounded-md;
+}
+
+.alert {
+  color:rgb(233, 101, 101);
+  @apply m-1 p-1 bg-sky-950 rounded-md;
 }
 
 h1, h2, h3, h4, p, li, a, label, em, div  {
@@ -10,15 +53,29 @@ h1, h2, h3, h4, p, li, a, label, em, div  {
 
 h1 {
   font-size: var(--text-5xl);
+  @apply mx-auto;
 }
 
-.flash-container {
-  height: 40px;
+h2 {
+  font-size: var(--text-3xl);
+  @apply mx-4 mb-4;
 }
 
-a {
+button, a, .input-button {
   color: rgb(197, 192, 184);
-  @apply hover:underline ;
+  @apply hover:underline mb-1 cursor-pointer;
+}
+
+.card-container {
+  @apply flex flex-wrap place-content-between;
+}
+
+.tool-card {
+  @apply rounded-md bg-sky-800 flex flex-col items-center md:w-1/4 m-2 p-2;
+}
+
+.tool-thumbnail {
+  @apply border rounded-md m-1;
 }
 
 .field input {
@@ -28,6 +85,7 @@ a {
   border: none;
   border-radius: 8px 8px 0 0;
   border-bottom: 2px solid floralwhite;
+  @apply py-1 px-2 mb-2;
 }
 
 .field input:focus {
@@ -39,6 +97,10 @@ a {
   border-bottom: 2px solid floralwhite;
 }
 
-.container {
-  width: 720px;
+.registration-error-messages-container {
+  @apply flex flex-col items-center mb-2 text-center;
+}
+
+.map {
+  @apply rounded-md;
 }
