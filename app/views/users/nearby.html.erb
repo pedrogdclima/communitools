@@ -1,20 +1,15 @@
-<div class="row align-items-center justify-content-between mb-3" data-turbo="false">
-  <h1 class="col-4">Nearby Tools</h1>
-  <%= link_to "Back", user_path, class: "col-1 btn btn-outline-light" %>
-</div>
-<% @tools.each do |tool| %>
-  <div class="row mb-3">
-    <div class="col-2">
-      <%= tool.name %>
-    </div>
-    <div class="col-2">
-      <%= tool.brand %>
-    </div>
-    <div class="col-2">
+<h2>Nearby Tools</h2>
+
+<div class="card-container">
+  <% @tools.each do |tool| %>
+    <div class="tool-card">
+      <%= link_to truncate(tool.name, length: 13), tool_path(tool.id) %>
+      <% if tool.photo.attached? %>
+      <%= image_tag(tool.photo.variant(:thumb), size: "100", class: "tool-thumbnail") %>
+      <% else %>
+      <%= image_tag("no_photo.png", size: "100", class: "tool-thumbnail") %>
+      <% end %>
       <%= tool.user.name %>
     </div>
-    <div class="col-2">
-      <%= link_to "View", tool_path(tool.id) %>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

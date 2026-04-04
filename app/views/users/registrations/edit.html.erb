@@ -1,88 +1,87 @@
 <% content_for :head do %>
+  <%= javascript_import_module_tag "leaflet" %>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <%= javascript_import_module_tag "slippy_map" %>
 <% end %>
 
-<div class="row align-items-center justify-content-between mb-3" data-turbo="false">
-  <h1 class="col-4">Edit <%= resource_name.to_s.humanize %></h2>
-  <%= link_to 'Back', user_path, class: "col-1 btn btn-outline-light" %>
-</div>
+<h2 class="">Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field row mb-3">
-    <%= f.label :name, class: "col-2 col-form-label" %>
-    <div class="col-4">
-      <%= f.text_field :name, class: "form-control", autofocus: true, autocomplete: "name" %>
+  <div class="field">
+    <%= f.label :name, class: "" %>
+    <div class="">
+      <%= f.text_field :name, class: "", autofocus: true, autocomplete: "name" %>
     </div>
   </div>
 
-  <div class="field row mb-3">
-    <%= f.label :email, class: "col-2 col-form-label" %>
-    <div class="col-4">
-      <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
+  <div class="field">
+    <%= f.label :email, class: "" %>
+    <div class="">
+      <%= f.email_field :email, class: "", autofocus: true, autocomplete: "email" %>
     </div>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div  class="row mb-3">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div  class="">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field row align-items-center mb-3">
-    <%= f.label :password, class: "col-1 col-form-label" %> <i class="col-1">(new)</i>
-    <div class="col-4">
-      <%= f.password_field :password, class: "form-control", autocomplete: "new-password" %>
-      <!--
-      <% if @minimum_password_length %>
-        <br />
-        <em><%= @minimum_password_length %> characters minimum</em>
-      <% end %>
-      -->
+  <div class="field">
+    <%= f.label :max_distance, class: "" %>
+    <div class="">
+      <%= f.number_field :max_distance, in: 1..10, class: "",  autofocus: true, autocomplete: "max-distance" %>
     </div>
   </div>
 
-  <div class="field row mb-3">
-    <%= f.label :password_confirmation, class: "col-2 col-form-label" %>
-    <div class="col-4">
-      <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>
+  <div class="hidden field">
+    <%= f.label :latlng, class: "" %>
+    <div class="">
+      <%= f.text_field :latlng, class: "",  autofocus: true, autocomplete: "latlng" %>
     </div>
   </div>
+  <div class="map" style="height: 180px; width: 360px" id="edit-map"></div>
 
-  <div class="field row mb-3">
-    <%= f.label :max_distance, class: "col-2 col-form-label" %>
-    <div class="col-4">
-      <%= f.number_field :max_distance, in: 1..10, class: "form-control",  autofocus: true, autocomplete: "max-distance" %>
+
+  <details class="">
+    <summary class="inline cursor-pointer">
+      <p>Change password?</p>
+    </summary>
+
+    <div class="field">
+      <%= f.label :password, class: "" %> <i class="">(new)</i>
+      <div class="">
+        <%= f.password_field :password, class: "", autocomplete: "new-password" %>
+        <!--
+        <% if @minimum_password_length %>
+          <br />
+          <em><%= @minimum_password_length %> characters minimum</em>
+        <% end %>
+        -->
+      </div>
     </div>
-  </div>
 
-  <div class="field row mb-3 visually-hidden">
-    <%= f.label :latlng, class: "col-2 col-form-label" %>
-    <div class="col-4">
-      <%= f.text_field :latlng, class: "form-control",  autofocus: true, autocomplete: "latlng" %>
+    <div class="field">
+      <%= f.label :password_confirmation, class: "" %>
+      <div class="">
+        <%= f.password_field :password_confirmation, class: "", autocomplete: "new-password" %>
+      </div>
     </div>
-  </div>
-  <div class="mb-3" style="height: 180px; width: 360px" id="map"></div>
+  </details>
 
-  <div class="field row mb-3">
-    <%= f.label :current_password, class: "col-2 col-form-label" %>
+  <div class="field">
+    <%= f.label :current_password, class: "" %>
     <!--
     <i>(we need your current password to confirm your changes)</i>
     -->
-    <div class="col-4">
-      <%= f.password_field :current_password, class: "form-control", autocomplete: "current-password" %>
+    <div class="">
+      <%= f.password_field :current_password, class: "", autocomplete: "current-password" %>
     </div>
   </div>
 
-  <div class="actions mb-3" data-turbo="false">
-    <%= f.submit "Update", class: "btn btn-outline-light" %>
+  <div class="actions" data-turbo="false">
+    <%= f.submit "Update", class: "input-button" %>
   </div>
 <% end %>
 
-<div class="row align-items-center mb-3">
-  <div class="col-2">Delete account?</div>
-  <div class="col-1">
-    <%= button_to "Delete", registration_path(resource_name), class: "btn btn-danger", data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
-  </div>
-</div>
+<%= button_to "Delete", registration_path(resource_name), class: "", data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>

@@ -16,7 +16,7 @@ class ToolsController < ApplicationController
     @tool = Tool.new(tool_params)
     @tool.user_id = current_user.id
     if @tool.save
-      redirect_to "/"
+      redirect_to "/", notice: t(".created")
     else
       render :new, status: :unprocessable_entity
     end
@@ -24,7 +24,7 @@ class ToolsController < ApplicationController
 
   def destroy
     @tool.destroy
-    redirect_to "/"
+    redirect_to "/", notice: t(".deleted")
   end
 
   def edit
@@ -32,7 +32,7 @@ class ToolsController < ApplicationController
 
   def update
     if @tool.update(tool_params)
-      redirect_to "/"
+      redirect_to "/", notice: t(".updated")
     else
       render :edit, status: :unprocessable_entity
     end
@@ -50,7 +50,7 @@ class ToolsController < ApplicationController
 
   def is_current_user_owner
     if @tool.nil? || @tool.user_id.nil?
-      redirect_to users_path , alert: t.(".no_tool")
+      redirect_to users_path, alert: t.(".no_tool")
     elsif @tool.user_id != current_user.id
       redirect_to tool_path(@tool.id), alert: t(".wrong_user")
     end

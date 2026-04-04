@@ -29,5 +29,8 @@
 
 en:
   tools:
-    wrong_user: "You don't own this tool!"
+    wrong_user: "This isn't your tool!"
     no_id: "Tool doesn't exist!"
+    deleted: "Tool deleted!"
+    created: "Tool added!"
+    updated: "Tool updated!"

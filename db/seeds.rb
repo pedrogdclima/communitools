@@ -4,9 +4,9 @@
 #
 # Example:
 #
-  # ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-  #   MovieGenre.find_or_create_by!(name: genre_name)
-  # end
+# ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
+#   MovieGenre.find_or_create_by!(name: genre_name)
+# end
 
 User.create!(username: 'pedrolima', name: 'Pedro', email: 'pedro@server.com', password: 'password', latlng: '43.6652, -79.3284')
 
@@ -17,17 +17,17 @@ User.create!(username: 'avethebabe', name: 'Avery', email: 'avery@server.com', p
 User.create!(username: 'nickchalis', name: 'Nick', email: 'nick@server.com', password: 'password', latlng: '43.6659, -79.3454')
 
 [
-  {name: 'Mallet', brand: '', desc:'', user_id: '3'},
-  {name: 'Side Cutters', brand: 'Park Tool', desc:'', user_id: '1'},
-  {name: '3D Printer', brand: 'Epson', desc:'', user_id: '2'},
-  {name: 'Tile Cutter', brand: 'Master Craft', desc:'', user_id: '3'},
-  {name: 'Oscillating Multitool', brand: 'Dewalt', desc:'', user_id: '1'},
-  {name: 'Chain Breaker', brand: 'Shimano', desc:'', user_id: '1'},
-  {name: 'Crank Puller', brand: 'Park Tool', desc:'', user_id: '1'},
-  {name: 'Truing Stand', brand: 'Park Tool', desc:'', user_id: '4'},
-  {name: 'Car Jack', brand: 'Mastercraft', desc:'', user_id: '4'},
-  {name: 'Torque Wrench', brand: '', desc:'', user_id: '4'},
-  {name: 'Air Compressor', brand: '', desc:'', user_id: '4'},
+  { name: 'Mallet', brand: '', desc: '', user_id: '3' },
+  { name: 'Side Cutters', brand: 'Park Tool', desc: '', user_id: '1' },
+  { name: '3D Printer', brand: 'Epson', desc: '', user_id: '2' },
+  { name: 'Tile Cutter', brand: 'Master Craft', desc: '', user_id: '3' },
+  { name: 'Oscillating Multitool', brand: 'Dewalt', desc: '', user_id: '1' },
+  { name: 'Chain Breaker', brand: 'Shimano', desc: '', user_id: '1' },
+  { name: 'Crank Puller', brand: 'Park Tool', desc: '', user_id: '1' },
+  { name: 'Truing Stand', brand: 'Park Tool', desc: '', user_id: '4' },
+  { name: 'Car Jack', brand: 'Mastercraft', desc: '', user_id: '4' },
+  { name: 'Torque Wrench', brand: '', desc: '', user_id: '4' },
+  { name: 'Air Compressor', brand: '', desc: '', user_id: '4' }
 ].each do |tool|
   Tool.create!(tool)
 end

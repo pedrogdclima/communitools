@@ -6,9 +6,8 @@ class UsersController < ApplicationController
 
   def tools
   end
-  
+
   def nearby
     @tools = current_user.nearby_tools
   end
-
 end
