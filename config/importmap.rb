@@ -7,5 +7,3 @@ pin "@hotwired/stimulus-loading", to: "stimulus-loading.js"
 pin_all_from "app/javascript/controllers", under: "controllers"
 pin "leaflet" # @1.9.4
 pin "slippy_map"
-# pin "edit_map"
-# pin "display_map"
