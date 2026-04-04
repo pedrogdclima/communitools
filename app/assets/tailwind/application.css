@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 body {
-  @apply bg-sky-950;
+  @apply bg-black;
 }
 
 .header {
@@ -13,7 +13,7 @@ body {
 }
 
 .sidebar-container {
-  @apply w-[80px] hidden md:flex absolute -left-26;
+  @apply w-[80px] hidden md:flex absolute -left-24;
 }
 
 .sidebar {
@@ -76,6 +76,10 @@ button, a, .input-button {
 
 .tool-thumbnail {
   @apply border rounded-md m-1;
+}
+
+.tool-full-image {
+  @apply border rounded-md my-1;
 }
 
 .field input {

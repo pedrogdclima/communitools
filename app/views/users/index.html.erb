@@ -5,7 +5,11 @@
 <% end %>
 
 <h2><%= current_user.name %></h2>
-<%= link_to 'Edit', edit_user_registration_path, class: "self-end" %>
+
+<p class="">
+  You have <%= current_user.nearby_users.size %> nearby neighbours sharing <%= current_user.nearby_tools.size %> <a href="/nearby">tools</a>!
+</p>
+<br>
 
 <div class="flex flex-col gap-1">
   <p>Username: <%= current_user.username %></p>
@@ -17,6 +21,4 @@
 </div>
 <div class="map" style="height: 180px; width: 360px" id="display-map"></div>
 
-<div class="">
-  There are <%= current_user.total_neighbours %> total users on the platform, <%= current_user.nearby_users.size %> of which are nearby and sharing <%= current_user.nearby_tools.size %> <a href="/nearby">tools</a>!
-</div>
+<%= link_to "Update Profile", edit_user_registration_path %>

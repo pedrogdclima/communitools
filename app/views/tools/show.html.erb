@@ -1,6 +1,4 @@
 <h2><%= @tool.name %></h2>
-<%= link_to "Back", :back %>
-
 
 <% if current_user.id != @tool.user_id %>
 <div class="">
@@ -11,17 +9,17 @@
 
 <div class="">
   <div class="">Brand</div>
-  <div class=""><%= @tool.brand %></div>
+  <div class=""><%= @tool.brand.blank? ? 'No brand provided' : @tool.brand %></div>
 </div>
 
-<div class="row mb-3">
-  <div class="col-3">Description</div>
-  <div class="col-3"><%= @tool.desc.blank? ? 'No description provided' : @tool.desc %></div>
+<div class="">
+  <div class="">Description</div>
+  <div class=""><%= @tool.desc.blank? ? 'No description provided' : @tool.desc %></div>
 </div>
 
-<div class="row mb-3">
-  <div class="col-3">Photo</div>
-  <%= @tool.photo.attached? ? image_tag(@tool.photo) : (tag.div "No photo provided", class: "col-3") %>
+<div class="">
+  <div class="">Photo</div>
+  <%= @tool.photo.attached? ? image_tag(@tool.photo, class: "tool-full-image") : (tag.div "No photo provided") %>
 </div>
 
 <div class="">

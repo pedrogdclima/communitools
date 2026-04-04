@@ -49,7 +49,7 @@
     </div>
   </div>
 
-  <div class="field">
+  <div class="hidden">
     <%= f.label :latlng, class: "" %>
     <div class="">
       <%= f.text_field :latlng, class: "",  autofocus: true, autocomplete: "latlng" %>
@@ -59,6 +59,6 @@
 
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class: "input-button" %>
   </div>
 <% end %>
