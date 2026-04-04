@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-
   authenticated :user do
     root to: "users#index", as: :authenticated_root
   end
 
   root to: "about#index"
 
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+  devise_for :users, controllers: { registrations: "users/registrations" }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   get "tools", to: "users#tools"
@@ -26,5 +25,4 @@ Rails.application.routes.draw do
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
-
 end
