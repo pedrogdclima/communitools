@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :tools
 
+  validates :username, :name, :latlng, presence: true
+
   def total_neighbours
     User.all.size
   end
