@@ -8,10 +8,10 @@ local:
 
 amazon:
   service: S3
-  access_key_id: <%= Rails.application.credentials.dig(:aws, :access_key_id) %>
-  secret_access_key: <%= Rails.application.credentials.dig(:aws, :secret_access_key) %>
-  bucket: amzn-s3-communitools-test-470895881056-us-east-2-an
-  region: "us-east-2"
+  access_key_id: <%= Rails.application.credentials.dig(:aws_access_key_id) %>
+  secret_access_key: <%= Rails.application.credentials.dig(:aws_secret_access_key) %>
+  bucket: <%= Rails.application.credentials.dig(:aws_bucket) %>
+  region: <%= Rails.application.credentials.dig(:aws_region) %>
 
 # Remember not to checkin your GCS keyfile to a repository
 # google:
