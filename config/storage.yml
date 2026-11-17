@@ -6,6 +6,14 @@ local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
 
+railway:
+  service: S3
+  access_key_id: <%= ENV["AWS_ACCESS_KEY_ID"] %>
+  secret_access_key: <%= ENV["AWS_SECRET_ACCESS_KEY"] %>
+  bucket: <%= ENV["AWS_BUCKET"] %>
+  region: <%= ENV["AWS_REGION"] %>
+  endpoint: <%= ENV["AWS_ENDPOINT"] %>
+
 amazon:
   service: S3
   access_key_id: <%= Rails.application.credentials.dig(:aws_access_key_id) %>
